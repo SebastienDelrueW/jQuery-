@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Entrainement jQuery</title>
+    <style>
+        button {
+            color: brown;
+            font-size: 25px;
+            border-radius: 25px 10px 20px;
+            font-family: fantasy;
+        }
+        
+        h2 {
+            border: 1px solid rebeccapurple;
+            margin: 0;
+            padding: 5px;
+        }
+        
+        h2+div {
+            background: grey;
+            height: 200px;
+        }
+        
+        #cube {
+            width: 100px;
+            height: 100px;
+            background: blue;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div">
+        Contenu de ma div
+    </div>
+    <button id="b1" style="display:none">Show</button>
+    <button id="b2">Hide</button>
+    <button id="b3">Toggle</button>
+    <hr>
+    <div id="div2" style="display: none;">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque aliquam cupiditate, dolorem vitae, reiciendis sit obcaecati culpa excepturi explicabo reprehenderit quisquam voluptas sequi iste aspernatur dicta natus quas quidem quae!
+            <img src="../01-selecteurs/6.jpg" alt="egypte" style="width: 400px; float: left;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque aliquam cupiditate, dolorem vitae, reiciendis sit obcaecati culpa excepturi explicabo reprehenderit
+            quisquam voluptas sequi iste aspernatur dicta natus quas quidem quae!
+        </p>
+    </div>
+    <button id="b4">fadeIn</button>
+    <button id="b5">fadeOut</button>
+    <button id="b6">fadeToggle</button>
+    <button id="b7">fadeTo</button>
+
+    <h2 id="titre1">Titre1</h2>
+    <div id="contenu1" style="display: none;">Contenu 1</div>
+
+    <h2 id="titre2">Titre2</h2>
+    <div id="contenu2">Contenu 2</div>
+
+    <h2 id="titre3">Titre3</h2>
+    <div id="contenu3">Contenu 3</div>
+
+    <hr>
+
+    <div id="cube"></div>
+    <h2 id="titre4">Titre4</h2>
+    <div id="contenu4">Contenu 4</div>
+
+    <script src="../sources/jquery-3.4.1.js"></script>
+    <script>
+        $(function() {
+            // méthode show montre un élément si celui ci est display none (style="display: none;")
+            $('#b1').click(function() {
+                $('#div1').show();
+                $('#b1').hide();
+                $('#b2').show();
+
+            });
+
+            $('#b2').click(function() {
+                $('#div1').hide();
+                $('#b2').hide();
+                $('#b1').show();
+            });
+
+            $('#b3').click(function() {
+                $('#div1').toggle();
+            });
+
+            // fadeToggle / fadeIn / fadeOut
+            // fadeIn 
+            $('#b4').click(function() {
+                $('#div2').fadeIn(3000);
+
+            });
+
+            //  fadeOut 
+            $('#b5').click(function() {
+                $('#div2').fadeOut(3000);
+                // $('#b5').html('terminé');
+
+            });
+
+            // fadeToggle
+            $('#b6').click(function() {
+                $('#div2').fadeToggle(3000, function() {
+                    alert('animation terminée')
+
+                });
+
+            });
+
+            // fadeTo pour l'opacité
+            $('#b7').click(function() {
+                $('#div2').fadeTo(2000, 0.5, function() {
+                    alert('animation terminée !')
+                });
+            });
+
+            // effet slide
+
+            // slide down
+            // $('#titre1').click(function() {
+            //     $('#contenu1').slideDown(2000);
+
+            // });
+
+            // $('#titre1').click(function() {
+            //     $('#contenu1').slideUp(2000);
+
+
+            // });
+
+            $('#titre1').click(function() {
+                $('#contenu1').slideDown(2000);
+
+            });
+
+            $('#titre2').click(function() {
+                $('#contenu2').slideUp(5000);
+
+
+            });
+
+            $('#titre3').click(function() {
+                $('#contenu3').slideToggle(3000);
+
+
+            });
+
+
+            $('#titre4').click(function() {
+                $('#contenu4').slideDown(2000);
+
+            });
+
+            $('#titre4').click(function() {
+                $('#contenu4').slideUp(3000);
+
+            });
+
+            // animate()
+            $('#cube').on('click', function() {
+                $(this).animate({
+                    'width': '200px',
+                    'height': '80px',
+                    'left': '100px',
+                    'border-radius': '45px',
+
+                });
+            });
+
+        });
+    </script>
+</body>
+
+</html>
