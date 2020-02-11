@@ -39,8 +39,8 @@
 
     <script src="../sources/jquery-3.4.1.js"></script>
     <script>
-        // console.log(document.getElementsByTagName('h1')); 
-        // console.log(Document.querySelector('h1').innerHTML);
+        console.log(document.getElementsByTagName('h1'));
+        //console.log(Document.querySelector('h1').innerHTML); error dans la console
         // la fonction query $ est l'équivalent d'un document.querySelectorAll()
         // la méthode eq() permet de selectionner en jquery un indice d'une collection d'objets
         // la méthode html () remplace innerHTML pour récupérer ou redéfinir un contenu de balise
@@ -79,7 +79,7 @@
         );
         // selectionner les div, leur donner un contour rouge.
 
-        // selectionner les éléments qui ont la class .select pour leur appliquer une couleur de fond 'blue et un texte 'white'
+        // selectionner les éléments qui ont la class .select pour leur appliquer une couleur de fond 'blue' et un texte 'white'
 
         $('.select').css({
             'background-color': 'blue',
@@ -88,6 +88,8 @@
 
         // selectionner les trois éléments pour faire préceder leur contenu d'un tiret '- '
         $('div, .select').prepend('- ');
+
+
 
 
         // manipulations de classes (addClass(), removeClass(), toggleClass(), hasClass())
@@ -121,7 +123,7 @@
         $('figure').find('img').attr("title", "egypte");
 
         // en selectionnant un enfant, je vais essayer d'atteindre le parent.
-        // .parent()va chercher le parent naturel, si je demande parent().parent() il va me chercher le parent du parent (ici le body)
+        // .parent()va chercher le parent naturel, si je demande .parent().parent() il va me chercher le parent du parent (ici le body)
 
 
         $('img').parent().css("border", "3px solid grey");
@@ -130,7 +132,6 @@
         // exercice: le but sera de récupérer alt de img dans une variable.
         // demander en jquery à ce que cette variable s'affiche dans le figcaption
         console.log($('img').attr('alt'));
-
 
         // une fois certain que je récupère le contenu souhaité, j'affecte ce contenu dans une variable (pas obligatoire mais plus simple à manipuler)
         var monAlt = $('img').attr('alt');

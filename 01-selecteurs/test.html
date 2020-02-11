@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+
+    <style>
+        .maclasse {
+            color: blue;
+            text-decoration: underline;
+            background: skyblue;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>Titre H1</h1>
+
+    <p>Paragraphe 1</p>
+    <p>Paragraphe 2</p>
+    <p>Paragraphe 3</p>
+    <p>Paragraphe 4</p>
+
+    <div>Div1</div>
+    <div class="select">Div2</div>
+    <nav class="select">Nav1</nav>
+
+    <span>Span 1</span>
+    <span>Span 2</span>
+    <span class="fakeClass">Span 3</span>
+
+    <figure>
+        <img src="6.jpg" alt="egypte mur" style="width: 300px">
+        <figcaption></figcaption>
+    </figure>
+
+    <script src="../sources/jquery-3.4.1.js"></script>
+
+    <script>
+        // console.log(document.getElementsByTagName('h1')); // résultat console HTMLCollection[h1]
+
+        // console.log(Document.querySelector('h1').innerHTML); // résultat console TypeError: Document.querySelector is not a function
+
+        // console.log($('h1').eq(0).html()); //résultat console Titre H1
+
+        // $('h1').eq(0).html('<a href="#">Mon titre via jQuery</a>'); //s'affiche sur la page web "Mon titre via jQuery" avec un lien
+
+        // $('h1').eq(0).text('<a href="#">Mon titre via jQuery</a>'); // s'affiche sur la page web " <a href="#">Mon titre via jQuery</a> "
+
+        // console.log($('h1').eq(0).text()); // résultat console Titre H1
+
+        // console.log($('p').eq(2).text()); // résultat console paragraphe 3
+
+        // $('p').html('Bonjour'); // s'affiche sur la page web "Bonjour" dans les quatre paragraphes
+
+        // $('p').eq(0).html('Bonjour'); // s'affiche sur la page web "Bonjour" dans le premier paragraphe et " paragraphe" dans les trois autres paragraphes.
+
+        // $('p').eq(1).append(' Après'); // s'affiche sur la page web Paragraphe 2 "Après"
+
+        // $('p').eq(1).append(' <span style="color:grey;">Après</span>'); // s'affiche sur la page web Paragraphe 2 "Après" en couleur grey
+
+        // $('p').eq(1).prepend('Avant '); // s'affiche sur la page web "Avant" Paragraphe 2
+
+        // $('p').css("color", "red"); // s'affiche sur la page web les quatre paragraphes en rouge
+
+        // $('p').css({
+        //    'color': 'blue',
+        //   'font-weight': 'bold',
+        //  'margin': '10px'
+        // });  // s'affiche sur la page web les quatre paragraphes en bleue en gras et avec un margin de 10 pixels
+
+        // $('div').css(
+        //   'border', '3px solid grey'
+        // ); // s'affiche sur la page web la Div1 et la Div2 avec une bordure de 3 pixels en grey(gris)
+
+        // $('.select').css({
+        //  'background-color': 'blue',
+        //  'color': 'white'
+        //}); // s'affiche sur la page web la Div2 et la Nav1 en blanc avec un fond bleu
+
+        // $('div, .select').prepend('- '); // s'affiche sur la page web la Div1, Div2 et la Nav1 avec un trait devant
+        // console.log($('div,.select')); // résultat console Object { 0: div, 1: div.select, 2: nav.select, length: 3, prevObject: Object(1) }
+    </script>
+
+</body>
+
+</html>
