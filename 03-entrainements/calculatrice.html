@@ -11,6 +11,11 @@
 </head>
 
 <body>
+    <p style="text-align: center;">
+        <span id="afficher">Afficher</span>
+        <span>/</span>
+        <span id="cacher">Cacher</span>
+    </p>
     <div id="conteneur" style="background: dodgerblue; width: 80%; height: 200px; margin: 0 auto; text-align: center; padding-top: 80px;">
         <form action="#" method="get" name="formulaire">
             <input type="number" name="saisie1" id="saisie1">
@@ -73,8 +78,12 @@
 
             $('#bouton').click(calcul);
 
-
-
+            $('afficher').click(function() {
+                $('#conteneur').slideDown();
+            });
+            $('#cacher').click(function() {
+                $('#conteneur').slideUp();
+            })
         });
     </script>
 
