@@ -7,10 +7,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Entrainement jQuery</title>
     <style>
+        body {
+            background: rgb(226, 224, 224);
+        }
+        
         button {
             color: brown;
-            font-size: 25px;
-            border-radius: 25px 10px 20px;
+            font-size: 20px;
+            border-radius: 25px 10px 40px;
+            box-shadow: 10px 10px 12px rgb(131, 128, 128);
             font-family: fantasy;
         }
         
@@ -22,20 +27,28 @@
         
         h2+div {
             background: grey;
-            height: 200px;
+            height: 250px;
         }
         
         #cube {
             width: 100px;
             height: 100px;
             background: blue;
+            background: url(../01-selecteurs/jetee.jpg) no-repeat;
+            background-size: contain;
             position: relative;
+        }
+        
+        img {
+            border: 2px solid rgb(175, 175, 175);
+            box-shadow: 10px 20px 12px rgb(109, 109, 109);
+            border-radius: 25%;
         }
     </style>
 </head>
 
 <body>
-    <div id="div">
+    <div id="div1">
         Contenu de ma div
     </div>
     <button id="b1" style="display:none">Show</button>
@@ -44,7 +57,7 @@
     <hr>
     <div id="div2" style="display: none;">
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque aliquam cupiditate, dolorem vitae, reiciendis sit obcaecati culpa excepturi explicabo reprehenderit quisquam voluptas sequi iste aspernatur dicta natus quas quidem quae!
-            <img src="../01-selecteurs/6.jpg" alt="egypte" style="width: 400px; float: left;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque aliquam cupiditate, dolorem vitae, reiciendis sit obcaecati culpa excepturi explicabo reprehenderit
+            <img src="../01-selecteurs/6.jpg" alt="egypte" style="width: 300px; float: left;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque aliquam cupiditate, dolorem vitae, reiciendis sit obcaecati culpa excepturi explicabo reprehenderit
             quisquam voluptas sequi iste aspernatur dicta natus quas quidem quae!
         </p>
     </div>
@@ -54,15 +67,16 @@
     <button id="b7">fadeTo</button>
 
     <h2 id="titre1">Titre1</h2>
-    <div id="contenu1" style="display: none;">Contenu 1</div>
+    <div id="contenu1" style="display: none;">
+        <img src="../01-selecteurs/6.jpg" alt="egypte" style="width: 372px; float: left;"><img src="../01-selecteurs/canaldelourcq.jpg" alt="canal de l'Ourcq" style="width: 373px; float: left;"><img src="../01-selecteurs/01nov2019.jpg" alt="pierre" style="width: 373px; float: left;">
+        <img src="../01-selecteurs/les_deux_canards.jpg" alt="theatre" style="width: 374px; float: left;">
+        <img src="../01-selecteurs/02nov2019.jpg" alt="feuille" style="width: 373px; float: left;">Contenu 1</div>
 
     <h2 id="titre2">Titre2</h2>
     <div id="contenu2">Contenu 2</div>
 
     <h2 id="titre3">Titre3</h2>
     <div id="contenu3">Contenu 3</div>
-
-    <hr>
 
     <div id="cube"></div>
     <h2 id="titre4">Titre4</h2>
@@ -134,7 +148,7 @@
             // });
 
             $('#titre1').click(function() {
-                $('#contenu1').slideDown(2000);
+                $('#contenu1').slideDown(3000);
 
             });
 
@@ -157,19 +171,42 @@
             });
 
             $('#titre4').click(function() {
-                $('#contenu4').slideUp(3000);
-
+                $('#contenu4').slideUp(3000)
             });
 
-            // animate()
-            $('#cube').on('click', function() {
-                $(this).animate({
-                    'width': '200px',
-                    'height': '80px',
-                    'left': '100px',
-                    'border-radius': '45px',
+        });
+
+        // animate()
+        $('#cube').on('click', function() {
+            $(this).animate({
+                'width': '300px',
+                'height': '100px',
+                'left': '900px',
+            }).slideUp(8000, function() {
+                $('#contenu1').slideUp(5000, function() {
+                    $('body').css("background-color", "#FFEBCD")
+                    $('button').css("background-color", "lightgrey");
+                    $('button').css("color", "black");
+                    $('#titre1').css("color", "grey");
+                    $('#titre2').css("color", "blue");
+                    $('#titre3').css("color", "marron");
+                    $('#titre4').css("color", "purple");
+                    $('#contenu3').css("background", "red");
+                    $('#contenu3').css("border-radius", "90px");
+                    $('#contenu2').css("background", "aquamarine");
+                    $('#contenu4, #contenu2').css("height", "50px");
+                    $('#contenu2, #contenu3').html('<strong>THE BIG APPLE</strong>');
+                    $('#contenu3').css("text-align", "center");
+                    $('#contenu4, #titre2, #titre4').css("text-transform", "upperCase");
+                    $('#contenu4, #titre2, #titre3, #titre4').slideUp(5000);
+                    $('#titre4').css("text-align", "center");
+                    $('#contenu2, #contenu3, #titre1').slideUp(15000);
+                    $(' #div1').slideUp(16000, function() {
+                        alert('ANIMATION TERMINÉE !');
+                    })
 
                 });
+
             });
 
         });
