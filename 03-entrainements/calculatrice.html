@@ -6,15 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculatrice</title>
     <style>
-
+        #toggle {
+            border: 1px solid gray;
+            width: 25px;
+            height: 15px;
+            color: maroon;
+        }
+        
+        .label {
+            background-color: thistle;
+            margin: 0 auto;
+            border: 1px solid gray;
+            width: 45px;
+            height: 15px;
+            color: white;
+        }
     </style>
 </head>
 
 <body>
     <p style="text-align: center;">
-        <span id="afficher">Afficher</span>
+        <span id="afficher"> Afficher </span>
         <span>/</span>
-        <span id="cacher">Cacher</span>
+        <span id="cacher"> Cacher </span>
+        <span id="toggle"> Toggle </span>
+
     </p>
     <div id="conteneur" style="background: dodgerblue; width: 80%; height: 200px; margin: 0 auto; text-align: center; padding-top: 80px;">
         <form action="#" method="get" name="formulaire">
@@ -28,6 +44,9 @@
             </select>
             <input type="number" name="saisie2" id="saisie2">
             <input type="submit" name="buton" id="bouton" value="Calculez">
+            <br><br>
+
+
 
         </form>
     </div>
@@ -70,23 +89,40 @@
                 if (operateur == '*') {
                     resultat = (saisie1 * saisie2);
                     console.log(resultat);
-
                 }
                 alert(saisie1 + operateur + saisie2 + "=" + resultat);
+
+                var resultat = $('');
 
             };
 
             $('#bouton').click(calcul);
 
-            $('afficher').click(function() {
+            $('#afficher').click(function() {
                 $('#conteneur').slideDown();
             });
             $('#cacher').click(function() {
                 $('#conteneur').slideUp();
             })
+            $('#toggle').click(function() {
+                $('#conteneur').slideToggle();
+            })
+            $('#conteneur').mouseenter(function() {
+                $(this).slideUp(5000);
+            });
+
+            $('#conteneur').mouseleave(function() {
+                $(this).delay(2200).fadeIn(4000).css({
+                        'background': 'red'
+                    },
+
+                );
+
+            });
         });
     </script>
-
+    <!-- Remède utiliser Math.round(Total*100)/100; pour garder un nombre (Number) ou bien Total.toFixed(2) pour obtenir une
+chaîne de caractère (String) comportant toujours 2 décimales. -->
 </body>
 
 </html>
