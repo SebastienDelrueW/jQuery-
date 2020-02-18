@@ -88,10 +88,8 @@
 
     <div class="animation">Voici le contenu de ma div à animer</div>
 
-
     <div class="effets"></div>
     <button id="bout_effet">Click pour l'effet</button>
-
 
     <h4>Tabs</h4>
 
@@ -142,17 +140,16 @@
                 .accordion();
 
             $('#ajoutClasse').click(function() {
-                $(this).addClass("nouvelleClasse", 2000);
+                $(this).addClass("nouvelleClasse", 2000).delay(5000);
                 $(this).removeClass("nouvelleClasse", 8000);
                 // $(this).toggleClass("nouvelleClasse", 2000);
             });
 
             $('.animation').click(function() {
 
-                var hauteur = '850px';
+                var hauteur = '950px';
 
                 $(this).animate({
-
 
                     // width: '400px',
                     height: '150px',
@@ -167,7 +164,6 @@
 
             })
 
-
             // placer un toggle pour qu'un clic sue le bouton entraine apparition et disparition du carré, cette disparition doit avoir lieu avec un effet "bounce"
 
             $('#bout_effet').click(function() {
@@ -178,7 +174,7 @@
                     $('.effets').delay(3000).toggle('explode');
 
 
-                    // toggle peut se voir préciser un effet qu'il appliqura lors des apparitions/disparitions
+                    // toggle peut se voir préciser un effet qu'il appliquera lors des apparitions/disparitions
                 })
                 // mise en place de tabs
 
@@ -187,7 +183,7 @@
                 event: "mouseover"
             });
 
-            // rendre les image draggable
+            // rendre les images draggable
             // $('img').draggable();
 
             $('#image1').draggable({
@@ -199,12 +195,10 @@
                 snapmode: 'outer'
             });
 
-
             $('#image3').draggable({
                 snap: "#image2, #image6",
                 snapmode: 'outer'
             });
-
 
             $('#image4').draggable({
                 snap: "#image1, #image5, #image7",
