@@ -43,6 +43,81 @@
             background: rgb(114, 23, 1);
             border: 1px solid rgb(109, 9, 9);
         }
+        
+        #joueur {
+            width: 50%;
+            border: 2px solid grey;
+            float: left;
+        }
+        
+        #adversaire {
+            width: 200px;
+            height: 200px;
+            border: 2px solid black;
+            float: left;
+        }
+        
+        #resizable {
+            width: 250px;
+            height: 250px;
+            border: 1px solid;
+            background: rgba(169, 3, 41, 0.93);
+            background: -moz-linear-gradient(left, rgba(169, 3, 41, 0.93) 13%, rgba(151, 2, 36, 0.93) 34%, rgba(143, 2, 34, 0.94) 44%, rgba(109, 0, 25, 0.98) 69%, rgba(109, 0, 25, 1) 83%);
+            background: -webkit-gradient(left top, right top, color-stop(13%, rgba(169, 3, 41, 0.93)), color-stop(34%, rgba(151, 2, 36, 0.93)), color-stop(44%, rgba(143, 2, 34, 0.94)), color-stop(69%, rgba(109, 0, 25, 0.98)), color-stop(83%, rgba(109, 0, 25, 1)));
+            background: -webkit-linear-gradient(left, rgba(169, 3, 41, 0.93) 13%, rgba(151, 2, 36, 0.93) 34%, rgba(143, 2, 34, 0.94) 44%, rgba(109, 0, 25, 0.98) 69%, rgba(109, 0, 25, 1) 83%);
+            background: -o-linear-gradient(left, rgba(169, 3, 41, 0.93) 13%, rgba(151, 2, 36, 0.93) 34%, rgba(143, 2, 34, 0.94) 44%, rgba(109, 0, 25, 0.98) 69%, rgba(109, 0, 25, 1) 83%);
+            background: -ms-linear-gradient(left, rgba(169, 3, 41, 0.93) 13%, rgba(151, 2, 36, 0.93) 34%, rgba(143, 2, 34, 0.94) 44%, rgba(109, 0, 25, 0.98) 69%, rgba(109, 0, 25, 1) 83%);
+            background: linear-gradient(to right, rgba(169, 3, 41, 0.93) 13%, rgba(151, 2, 36, 0.93) 34%, rgba(143, 2, 34, 0.94) 44%, rgba(109, 0, 25, 0.98) 69%, rgba(109, 0, 25, 1) 83%);
+            filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019', GradientType=1);
+            -webkit-box-shadow: 15px 9px 5px 0px rgba(191, 185, 191, 1);
+            -moz-box-shadow: 15px 9px 5px 0px rgba(191, 185, 191, 1);
+            box-shadow: 15px 9px 5px 0px rgba(191, 185, 191, 1);
+        }
+        
+        #resizable h5 {
+            background: lightgrey;
+            text-align: center;
+            margin: 0;
+            padding: 10px;
+        }
+        
+        .ui-resizable-helper {
+            background: url("images/02nov2019.jpg");
+            border: 1px dotted gray;
+        }
+        
+        .monhelper {
+            border: 2px solid rgb(44, 2, 44);
+        }
+        /* seletable */
+        /* classe du parent (la liste ol) */
+        
+        .ui-selectable {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        /* classe de l'élément selectionnable par défaut  */
+        
+        .ui-selectee {
+            background: grey;
+            color: white;
+            padding: 5px 10px;
+            border: 1px solid black;
+            width: 150px;
+            text-align: center;
+        }
+        /* classe de l'élément en train d'être cliqué */
+        
+        .ui-selecting {
+            background: #bbb;
+        }
+        /* classe de l'élément une fois cliqué */
+        
+        .ui-selected {
+            background: #222;
+            color: white;
+        }
     </style>
 
 </head>
@@ -118,7 +193,8 @@
         </div>
     </div>
     <hr>
-    <div style="border: 1px solid red; height: 100vh">
+    <!-- viewport height vh -->
+    <div style="border: 3px solid rgb(128, 79, 79); height: 100vh">
 
         <img id="image1" src="images/cheval_01.jpg" alt="cheval">
         <img id="image3" src="images/cheval_03.jpg" alt="cheval">
@@ -131,6 +207,51 @@
         <img id="image6" src="images/cheval_06.jpg" alt="cheval">
 
     </div>
+    <div style="border: 2px solid rgb(141, 141, 192); height: 80vh; display: flex; flex-wrap: wrap; justify-content: space-between;">
+
+        <h4 style="width: 100%;">Dropppable</h4>
+        <div id="joueur">
+            <img id="pierre" src="images/pierre.png" alt="Pierre">
+            <img id="feuille" src="images/feuille.png" alt="feuille">
+            <img id="ciseaux" src="images/ciseaux.png" alt="Ciseaux">
+
+        </div>
+        <div id="adversaire">
+            <img id="img_adv" src="images/ciseaux.png" alt="Ciseaux">
+        </div>
+        <div id="ecran"></div>
+    </div>
+    <hr>
+    <div id="parent" style="border: 5px solid blue; height: 50vh;">
+
+        <h4>Resizable</h4>
+
+        <div id="resizable">
+            <h5>Redimensionnez_moi !</h5>
+
+            <p style="border: 5px solid rgb(176, 176, 196);">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, asperiores?
+            </p>
+            <img src="images/02nov2019.jpg" alt="feuille" width="150" height="90">
+        </div>
+    </div>
+    <hr>
+    <h4>Selectable</h4>
+    <ol id="selectable">
+        <li>élément 1</li>
+        <li>élément 2</li>
+        <li>élément 3</li>
+    </ol>
+    <hr>
+    <h4>Date picker</h4>
+
+    <!-- <input type="date">  le date picker vient en remplacement du <input type="date-> tant que les navigateurs ne permettent pas son utilisation -->
+    <input type="text" id="input" placeholder="Choisissez une date">
+
+    <hr>
+    <h4>Autocomplete</h4>
+
+    <input type="text" id="autocomplete">
+    <br><br><br><br><br><br><br><br><br>
     <script src="../sources/jquery-3.4.1.js"></script>
 
     <script src="jquery-ui.js"></script>
@@ -150,15 +271,13 @@
                 var hauteur = '950px';
 
                 $(this).animate({
-
                     // width: '400px',
                     height: '150px',
-
                     width: hauteur,
-
                     color: 'black',
                     backgroundColor: 'gray',
                     lineHeight: '150px',
+
 
                 }, 2000);
 
@@ -172,7 +291,6 @@
                     $('.effets').toggle('bounce');
 
                     $('.effets').delay(3000).toggle('explode');
-
 
                     // toggle peut se voir préciser un effet qu'il appliquera lors des apparitions/disparitions
                 })
@@ -188,45 +306,54 @@
 
             $('#image1').draggable({
                 snap: "#image2, #image4",
-                snapmode: 'outer'
+                snapmode: 'outer',
+                revert: "invalid"
             });
             $('#image2').draggable({
                 snap: "#image1, image3,#image5",
-                snapmode: 'outer'
+                snapmode: 'outer',
+                revert: "invalid"
             });
 
             $('#image3').draggable({
                 snap: "#image2, #image6",
-                snapmode: 'outer'
+                snapmode: 'outer',
+                revert: "invalid"
             });
 
             $('#image4').draggable({
                 snap: "#image1, #image5, #image7",
-                snapmode: 'outer'
+                snapmode: 'outer',
+                revert: "invalid"
             });
 
             $('#image5').draggable({
                 snap: "#image2, #image4, #image6",
-                snapmode: 'outer'
+                snapmode: 'outer',
+                revert: "invalid"
             });
 
             $('#image6').draggable({
                 snap: "#image3, #image5 #image9",
-                snapmode: 'outer'
+                snapmode: 'outer',
+                revert: "invalid"
             });
 
             $('#image7').draggable({
                 snap: "#image4, #image8",
-                snapmode: 'outer'
+                snapmode: 'outer',
+                revert: "invalid"
             });
 
             $('#image8').draggable({
                 snap: "#image7, #image9, #image5",
-                snapmode: 'outer'
+                snapmode: 'outer',
+                revert: "invalid"
             });
             $('#image9').draggable({
                 snap: "#image8, #image6",
-                snapmode: 'outer'
+                snapmode: 'outer',
+                revert: "invalid"
             });
 
             // changer le curseur : mousedown bouton de souris cliqué, mouseup bouton de souris relaché
@@ -238,8 +365,98 @@
                 $(this).css('cursor', 'grab');
             });
 
+            // DROPPABLE
+            // $('#pierre').draggable();
+            // $('#feuille').draggable();
+            // $('#ciseaux').draggable();
+
+            $('#feuille, #pierre, #ciseaux').draggable({
+                revert: "invalid"
+            });
+
+            $('#adversaire').droppable({
+                accept: "#feuille, #pierre",
+                drop: function(evenement, element) {
+                    // alert('J\'accepte ces éléments')
+                    if (element.draggable.is('#pierre')) {
+                        alert('Gagné');
+                        $(this).css("background", "lime");
+                        $('#ecran').html('<img src="images/02nov2019.jpg" alt="photo">');
+
+                    } else {
+                        alert('Perdu');
+                        $(this).css("background", "yellow");
+                    }
+
+                }
+            });
+
+            // mettre en place un droppable sur le cadre gris(#joueur) pour pouvoir y renvoyer feuille et pierre
+            $('#joueur').droppable({
+                accept: "#pierre, #feuille, #ciseaux",
+                drop: function() {
+                    $(this).css("background", "lightgrey");
+                }
+            });
+
+            // function direBonjour(prenom) {
+            //     document.write('Bonjour ' + prenom);
+            // }
+            // direBonjour('Pierre');
+
+            // RESIZABLE
+            $("#resizable").resizable({
+                    animate: true,
+                    containement: '#parent',
+                    helper: "monhelper",
+                    maxWidth: 750,
+                    maxHeight: 500,
+                    mminWidth: 450,
+                    minHeight: 350,
+                    aspectRatio: 2 / 1
+                }
+
+            );
+            // selectable()
+            $("#selectable").selectable({
+                stop: function() {
+                    console.log($('.ui-selected').text());
+
+                }
+
+            });
+
+            // datePicker()
+
+            $('#input').datepicker({
+                monthNames: ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"],
+                dayNames: ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"],
+                dayNamesMin: ["Di", "Lu", "Ma", "Me", "Je", "Ve", "Sa"],
+                dateFormat: "dd - mm - yy",
+                firstDay: 1,
+                numberOfMonths: 2
+
+            });
+
+            // autocomplete
+
+            var mesTags = [
+                "Paris",
+                "Nantes",
+                "Lyon",
+                "Nice",
+                "Lille"
+            ];
+
+            $('#autocomplete').autocomplete({
+                source: mesTags
+            });
+
         });
     </script>
+
+
+
 </body>
 
 </html>
